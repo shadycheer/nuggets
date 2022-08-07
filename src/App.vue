@@ -1,9 +1,7 @@
-<script lang="ts" setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <router-view />
 </template>
 
 <style lang="less" scoped>
