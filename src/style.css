@@ -66,7 +66,18 @@ button:focus-visible {
   padding: 2rem;
   text-align: center;
 }
-
+.logo-img{
+  display: block;
+  width: 107px;
+  height: 22px;
+}
+.main-header{
+  background-color: #fff;
+  border-bottom:1px solid #f1f1f1 ;
+  color: #909090;
+  height: 5rem;
+  z-index: 250;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
