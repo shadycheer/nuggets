@@ -1,8 +1,7 @@
-import {defineConfig} from 'vite'
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
     alias: {
@@ -19,5 +18,21 @@ export default defineConfig({
       dirs: path.resolve(__dirname, 'src/directives')
     }
   },
-  plugins: [vue()]
+  plugins: [vue()],
+  server: {
+    host: 'drown.cn',
+    port: 8000,
+    proxy: {
+      '/recommend_api': {
+        target: 'https://api.juejin.cn',
+        secure: true,
+        changeOrigin: true,
+        ws: true,
+        rewrite: (path) => path.replace('^/recommend_api', ''),
+        headers: {
+          origin: 'https://api.juejin.cn'
+        }
+      }
+    }
+  }
 })
