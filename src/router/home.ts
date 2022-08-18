@@ -2,7 +2,7 @@ import {ROUTE_NAMES, ROUTE_PATH} from './constant' // const Layout = () => impor
 
 // const Layout = () => import('@/layout/layout.vue')
 const Home = () => import('@/views/home/index.vue')
-
+const Post=()=>('@/views/home/Detail.vue')
 export default [
   {
     path: ROUTE_PATH.root,
@@ -12,8 +12,22 @@ export default [
       {
         path: ROUTE_PATH.home,
         name: ROUTE_NAMES.home,
-        component: Home
-      }
+        component: Home,
+        meta:{
+          title:'Home主页'
+        }
+      },
+
+      {
+        path:ROUTE_PATH.post,
+        name:ROUTE_NAMES.post,
+        component:Post,
+        meta: {
+          title: '文章详情页'
+      },
+      
+      },
+
     ]
   }
 ]
