@@ -1,0 +1,13 @@
+.utils-ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.utils-clamp(@value) {
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: @value;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

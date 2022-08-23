@@ -1,11 +1,14 @@
 <style scoped></style>
 
 <template>
-  <div>hahah</div>
+  <div>
+    <ListCard />
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { homeServices } from '../../services/modules'
+import ListCard from './components/ListCard/index.vue'
+import { homeServices } from '@/services/modules'
 import { watchEffect } from 'vue'
 
 const get = async () => {
