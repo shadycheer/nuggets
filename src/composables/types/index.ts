@@ -29,13 +29,6 @@ export type RequestService<R, P extends unknown[] = any> = (
 
 export type RequestListService<R> = (...args: any[]) => Promise<R>
 
-export interface IRequestListParams {
-  offset: number
-  limit: number
-
-  [props: string]: any
-}
-
 export interface ListResponse {
   err_no: number
   err_msg: string

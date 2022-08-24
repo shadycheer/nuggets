@@ -103,7 +103,10 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { Close } from '@element-plus/icons'
+import {ListResponse} from '@/composables/types'
 
+// const props = defineProps<Ref<ListResponse>>()
+// const {data} = props>
 const close = ref(false)
 const setClose = (val: boolean = !close) => (close.value = val)
 </script>
