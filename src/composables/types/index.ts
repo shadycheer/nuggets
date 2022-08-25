@@ -77,6 +77,7 @@ export interface UserInfo {
 
 export interface ItemInfo {
   id: number
+  article_id: string
   advert_id: string
   user_id: string
   item_id: string
@@ -106,6 +107,22 @@ export interface ItemInfo {
   topic_id: string
   status: number
   item_user_info: any
+  article_info: any
+  tags: {
+    back_ground: string
+    color: string
+    concern_user_count: number
+    ctime: number
+    icon: string
+    id: number
+    id_type: number
+    mtime: number
+    post_article_count: number
+    show_navi: number
+    tag_alias: string
+    tag_id: string
+    tag_name: string
+  }[]
 }
 
 export interface DataRes {

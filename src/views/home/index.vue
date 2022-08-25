@@ -1,23 +1,43 @@
-<style scoped></style>
+<style lang="less" scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-nav {
+    z-index: 99999;
+  }
+  &-list {
+    margin-top: 100px;
+  }
+}
+</style>
 
 <template>
-  <div v-for="d in data">
-    <ListCard :data="d"/>
+  <div class="home" v-infinite-scroll="fetchMainList" v-loading="loading" element-loading-text="加载中">
+    <Nav class="home-nav"/>
+    <div class="home-list">
+      <div  v-for="(d, index) in listData">
+        <ListCard :data="d" :index="index" :key="d.item_info.article_id" @delete="deleteItem"/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import ListCard from './components/ListCard/index.vue'
+import Nav from '@/components/Nav/index.vue'
 import {homeServices} from '@/services/modules'
-import {watchEffect} from 'vue'
+import {onMounted, ref, watchEffect} from 'vue'
 import {useLoadList} from '@/composables/useList'
+import {DataRes} from '@/composables/types'
 
-const {
+const listData = ref<DataRes[]>([])
+let {
   fetchData: fetchMainList,
   data,
   loading,
   refreshing,
-  finished
+  finished,
 } = useLoadList(homeServices.getRecommendList, {
   params: {
     limit: 20,
@@ -26,9 +46,17 @@ const {
     client_type: 2608,
     sort_type: 200,
   },
+  onSuccess() {
+    listData.value = data.value.filter(i => i.item_type === 2)
+  }
 })
-watchEffect(async () => {
-  await fetchMainList()
-  console.log(data.value)
+
+const deleteItem = (val: number) => {
+  listData.value = listData.value.filter((i, index) => index !== val)
+}
+
+onMounted(() => {
+  fetchMainList()
 })
+
 </script>

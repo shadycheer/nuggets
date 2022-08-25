@@ -1,6 +1,7 @@
 import {useRequest} from './useRequest'
 import {ref} from 'vue'
 import {
+	DataRes,
 	IListOptions,
 	ListResponse,
 	RequestListService,
@@ -11,7 +12,7 @@ export function useLoadList<R extends ListResponse,
 	P extends RequestList>(service: RequestListService<R>, options: IListOptions<P>) {
 	const finished = ref(false)
 	const refreshing = ref(false)
-	const data = ref<R[]>([])
+	const data = ref<DataRes[]>([])
 	const total = ref(0)
 	const {params, onSuccess} = options
 	const {run, loading} = useRequest(() => service(params), {
