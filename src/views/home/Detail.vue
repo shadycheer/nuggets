@@ -69,7 +69,17 @@
 
 
                 <!-- 全部评论 -->
-                <div class="comment-list"></div>
+                <div class="comment-list">
+                    <div class="title">
+                        全部评论
+                    </div>
+                    <div class="list">
+                        <div class="comment-box">
+                            <div class="comment-main"></div>
+                            <div class="subcomment-wrapper"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- 侧边栏 -->
@@ -80,7 +90,15 @@
 
 
                 <!-- 下载链接 -->
-                <div  class="app-link"></div>
+                <div  class="app-link">
+                    <!-- 点击图片后 跳转到/app界面 -->
+                    <router-link to="/app"></router-link>
+                    <img src="" alt="">
+                    <div class="content-box">
+                        <div class="headline">下载稀土掘金APP</div>
+                        <div class="desc">一个帮助开发者成长的社区</div>
+                    </div>
+                </div>
 
 
                 <!-- 文章目录 -->
